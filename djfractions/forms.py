@@ -3,13 +3,13 @@ from __future__ import unicode_literals, absolute_import, division, print_functi
 from django import forms
 from django.core.exceptions import ValidationError
 from django.core import validators
-from django.utils import six
 from django.utils.translation import ugettext_lazy as _, ungettext_lazy
 
 from decimal import Decimal, InvalidOperation
 import fractions
 import numbers
 import re
+import six
 
 from . import (quantity_to_decimal, is_number, get_fraction_parts,
                coerce_to_thirds, quantity_to_fraction)
@@ -166,7 +166,7 @@ class DecimalFractionField(FractionField):
             'max'),
     }
 
-    
+
     #def __init__(self, max_value=None, min_value=None, limit_denominator=None,
     #             coerce_thirds=True, use_mixed_numbers=True, *args, **kwargs):
     #    self.coerce_thirds = coerce_thirds
@@ -228,7 +228,7 @@ class DecimalFractionField(FractionField):
     #def clean(self, value):
     #    if self.max_digits is not None and self.decimal_places is not None and self.round_decimal:
     #        value = self.round_decimal_value(value)
-    #    return super(DecimalFractionField, self).clean(value) 
+    #    return super(DecimalFractionField, self).clean(value)
 
     def round_decimal_value(self, value):
         # NOT SURE THIS IS A GOOD IDEA
@@ -265,7 +265,7 @@ class DecimalFractionField(FractionField):
             # if no decimal places can be used to reac max_digits then
             # use no leading decimal, causing Decimal.quantize() to round to
             # a whole number
-            quantize_string = u'.%s' % quantize_string 
+            quantize_string = u'.%s' % quantize_string
         value = value.quantize(Decimal(quantize_string))
         return value
 

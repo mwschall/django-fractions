@@ -5,12 +5,12 @@ from __future__ import unicode_literals, division, absolute_import, print_functi
 from django.core import checks
 from django.db import connection
 from django.db.models import DecimalField, Field
-from django.utils import six
 from django.utils.translation import ugettext_lazy as _
 
 import decimal
 import fractions
 import logging
+import six
 
 from .. import coerce_to_thirds
 from .. import forms as fraction_forms

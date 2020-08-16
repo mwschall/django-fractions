@@ -40,6 +40,7 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
+        'six',
     ],
     test_suite='runtests.run_tests',
     license="BSD",
